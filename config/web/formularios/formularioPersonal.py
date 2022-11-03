@@ -10,46 +10,52 @@ class FormularioPersonal(forms.Form):
     #Creando atributo para cargar el selector
 
     OPCIONES=(
-        (1, 'Medellin'),
-        (2, 'Envigado'),
-        (3, 'Itagui'),
-        (4, 'Sabaneta'),
-        (5, 'Bello')
+        (1, 'Cocinero'),
+        (2, 'Ayudante'),
+        (3, 'Mesero'),
+        (4, 'Administrador'),
     )
     
     #Dentro de la clase cada atributo será un input 
 
     nombreEmpleado=forms.CharField(
         widget=forms.TextInput(attrs={'class':'form-control mb-3'}),
-        required=True,
-        max_length=5
+        #required=True,
+        max_length=60,
+        label="Nombre del empleado"
     )
 
-    identificacionEmpleado=forms.CharField(
-        widget=forms.TextInput(attrs={'class':'form-control m-b3'}),
-        required=True,
-        max_length=20
-    )
-
-    direccionEmpleado=forms.CharField(
+    apellidoEmpleado=forms.CharField(
         widget=forms.TextInput(attrs={'class':'form-control mb-3'}),
-        required=True,
+        #required=True,
+        max_length=60,
+        label="Apellidos del empleado"
     )
 
-    municipioEmpleado=forms.ChoiceField(
+    fotoEmpleado=forms.CharField(
+        widget=forms.TextInput(attrs={'class':'form-control mb-3'}),
+        #required=True,
+        label="Foto del empleado"
+    )
+
+    cargoEmpleado=forms.ChoiceField(
         widget=forms.Select(attrs={'class':'form-control mb-3'}),
         required=True,
-        choices=OPCIONES
+        choices=OPCIONES,
+        label="Cargo del empleado"
     )
 
-    correoEmpleado=forms.EmailField(
-        widget=forms.EmailInput(attrs={'class':'form-control mb-3'}),
-        required=True
+    salarioEmpleado=forms.CharField(
+        widget=forms.TextInput(attrs={'class':'form-control m-b3'}),
+        #required=True,
+        max_length=20,
+        label="Salario del empleado"
     )
 
-    telefonoEmpleado=forms.CharField(
-        widget=forms.NumberInput (attrs={'class':'form-control mb-3'}),
-        required=True,
+    contactoEmpleado=forms.CharField(
+        widget=forms.TextInput (attrs={'class':'form-control mb-3'}),
+        #required=True,
+        label="Contacto del empleado"
     )
 
     

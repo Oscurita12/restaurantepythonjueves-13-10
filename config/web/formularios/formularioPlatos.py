@@ -20,27 +20,32 @@ class FormularioPlatos(forms.Form):
     nombrePlato=forms.CharField(
         widget=forms.TextInput(attrs={'class':'form-control mb-3'}),
         required=True,
-        max_length=5
+        max_length=5,
+        label="Nombre del plato"
     )
 
     descripcionPlato=forms.CharField(
         widget=forms.TextInput(attrs={'class':'form-control m-b3'}),
         required=False,
-        max_length=20
+        max_length=20,
+        label="Descripción del plato"
     )
 
     fotoPlato=forms.CharField(
         widget=forms.TextInput(attrs={'class':'form-control mb-3'}),
         required=True,
+        label="Foto del plato"
     )
 
     precioPlato=forms.CharField(
         widget=forms.NumberInput (attrs={'class':'form-control mb-3'}),
         required=True,
+        label="Precio del plato"
     )
 
     tipoPlato=forms.ChoiceField(
         widget=forms.Select(attrs={'class':'form-control mb-3'}),
         required=True,
-        choices=OPCIONES
+        choices=OPCIONES,
+        label="Tipo de plato"
     )

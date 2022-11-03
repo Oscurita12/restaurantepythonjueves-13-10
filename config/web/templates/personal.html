@@ -26,8 +26,10 @@
                     <img src="../static/img/chefs.jpeg" alt="chefs" class="w-100 img-fluid">
                 </div>
                 <div class="col-12 col-md-8">
-                    <form>
+                    <form method="POST">
                         {{formularioPersonal}}
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-outline-success">Registrar</button>
                     </form>
                 </div>
             </div>
