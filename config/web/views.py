@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 from web.formularios.formularioPersonal import FormularioPersonal
+from web.formularios.formularioEdicionPlatos import FormularioEdicionPlatos
 
 #Importar el formulario a render
 from web.formularios.formularioPlatos import FormularioPlatos
@@ -14,6 +16,44 @@ from web.models import Platos, Empleado
 def Home(request):
     return render(request,'index.html')
 
+def MenuPlatos(request):
+
+    platosConsultados=Platos.objects.all()
+
+    formulario=FormularioEdicionPlatos()
+
+    diccionarioEnvio={
+        'platos': platosConsultados,
+        'formulario': formulario 
+    }
+
+    return render (request, 'menuPlatos.html', diccionarioEnvio)
+
+def EditarPlato(request,id):
+    print(id)
+    #Recibir los datos del formulario y editar mi plato 
+    if request.method=='POST':
+        datosDelFormulario=FormularioEdicionPlatos(request.POST)
+        if datosDelFormulario.is_valid():
+            datosPlato=datosDelFormulario.cleaned_data
+            try:
+                Platos.objects.filter(pk=id).update(precio=datosPlato["precioPlato"])
+                print("EXITO EDITANDO EL PLATO")
+
+            except Exception as error:
+                
+                print("error",error)
+
+    return redirect('menu')
+
+def MenuEmpleados(request):
+    empleadosConsultados=Empleado.objects.all()
+
+    diccionarioEmpleado={
+        'empleados': empleadosConsultados
+    }
+
+    return render (request, 'menuEmpleados.html', diccionarioEmpleado)
 
 def VistaPlatos(request):
 
