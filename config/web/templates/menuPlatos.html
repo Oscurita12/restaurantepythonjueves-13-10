@@ -35,7 +35,7 @@
                         <img src={{plato.foto}} alt="" class="img-fluid w-100">
                         <h4>{{plato.nombre}}</h4>
                         <p class="">{{plato.descripcion}}</p>
-                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample{{plato.id}}" aria-expanded="false" aria-controls="collapseExample">
+                        <button class="btn btn-primary" type="button" style="background-color: #bfaa8c ;" data-bs-toggle="collapse" data-bs-target="#collapseExample{{plato.id}}" aria-expanded="false" aria-controls="collapseExample">
                             <i class="bi bi-pencil"></i>
                         </button>
                         <div class="collapse" id="collapseExample{{plato.id}}">
@@ -43,7 +43,7 @@
                                 <form action="{% url 'editarPlato' id=plato.id %}" method="POST">
                                     {{formulario}}
                                     {% csrf_token %}
-                                    <button type="submit" class="btn btn-primary">Editar</button>
+                                    <button type="submit" class="btn btn-primary" style="background-color: #bfaa8c;">Editar</button>
                                 </form>
                             </div>
                           </div>

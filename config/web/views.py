@@ -52,6 +52,7 @@ def MenuEmpleados(request):
     diccionarioEmpleado={
         'empleados': empleadosConsultados
     }
+    print(diccionarioEmpleado)
 
     return render (request, 'menuEmpleados.html', diccionarioEmpleado)
 
