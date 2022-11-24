@@ -1,6 +1,6 @@
 .banner {
 
-    background-image: url("../img/banner.jpg");
+    background-image: url("../img/banner2.jpg");
     background-position: top center;
     background-size: cover;
     padding: 25%;
@@ -22,7 +22,7 @@
 }
 
 .menu {
-    background-color: #43A047;
+    background-color: #e8c39c;
 }
 
 .zoom {
@@ -33,7 +33,7 @@
     transform: scale(1.1);
 }
 .fondo2 {
-    background-color: #5A8768;
+    background-color: #bfaa8c;
 }
 
 .logomenu {
